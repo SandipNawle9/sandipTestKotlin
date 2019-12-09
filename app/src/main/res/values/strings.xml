@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SandipTesKotlin</string>
+    <string name="space"> </string>
+    <string name="internet_avail_toast">User can delete in offline mode only</string>
+    <string name="internet_message">User can delete in offline mode only</string>
+    <string name="delete_toast">Want to delete this user?</string>
+</resources>

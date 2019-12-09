@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="user"
+            type="com.mvvm.sandiptest.repository.database.entity.User"/>
+
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvUser"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:elevation="3dp"
+            card_view:cardCornerRadius="1dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tvFullName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:padding="4dp"
+                    android:text="@{user.name}"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="30sp"
+                    bind:layout_constraintEnd_toEndOf="parent"
+                    bind:layout_constraintStart_toStartOf="parent"
+                    bind:layout_constraintTop_toTopOf="parent"
+                    tools:text="Sandip" />
+
+
+                <TextView
+                    android:id="@+id/tvUserName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvFullName"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="20dp"
+                    android:padding="4dp"
+                    android:text="@{user.username}"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="16sp"
+                    bind:layout_constraintStart_toEndOf="@+id/imgUser"
+                    bind:layout_constraintTop_toBottomOf="@+id/tvFullName"
+                     />
+
+                <ImageView
+                    android:id="@+id/imgUser"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="8dp"
+                    bind:layout_constraintBottom_toBottomOf="@+id/tvUserName"
+                    bind:layout_constraintEnd_toStartOf="@+id/tvUserName"
+                    bind:layout_constraintStart_toStartOf="parent"
+                    bind:layout_constraintTop_toTopOf="@+id/tvUserName"
+                    bind:srcCompat="@drawable/ic_person_black_24dp" />
+
+                <TextView
+                    android:id="@+id/tvEmail"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvFullName"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:padding="4dp"
+                    android:text="@{user.email}"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="16sp"
+                    bind:layout_constraintStart_toEndOf="@+id/imgEmail"
+                    bind:layout_constraintTop_toBottomOf="@+id/tvUserName"
+                     />
+
+
+                <ImageView
+                    android:id="@+id/imgEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    bind:layout_constraintBottom_toBottomOf="@+id/tvEmail"
+                    bind:layout_constraintEnd_toEndOf="@+id/imgUser"
+                    bind:layout_constraintStart_toStartOf="@+id/imgUser"
+                    bind:layout_constraintTop_toTopOf="@+id/tvEmail"
+                    bind:srcCompat="@drawable/ic_email_black_24dp" />
+
+
+                <TextView
+                    android:id="@+id/tvPhone"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvFullName"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:padding="4dp"
+                    android:text="@{user.phone}"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="16sp"
+                    bind:layout_constraintStart_toEndOf="@+id/imgPhone"
+                    bind:layout_constraintTop_toBottomOf="@+id/tvEmail"
+                     />
+
+
+                <ImageView
+                    android:id="@+id/imgPhone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    bind:layout_constraintBottom_toBottomOf="@+id/tvPhone"
+                    bind:layout_constraintEnd_toEndOf="@+id/imgEmail"
+                    bind:layout_constraintStart_toStartOf="@+id/imgEmail"
+                    bind:layout_constraintTop_toTopOf="@+id/tvPhone"
+                    bind:srcCompat="@drawable/ic_phone_black_24dp" />
+
+                <TextView
+                        android:id="@+id/tvAddress"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tvFullName"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="16dp"
+                        android:padding="4dp"
+                        android:text="@{user.address.street.concat(`,`).concat(@string/space).concat(user.address.suite).concat(`,`).concat(@string/space).concat(user.address.city).concat(`,`).concat(@string/space).concat(user.address.zipcode)}"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="16sp"
+                        bind:layout_constraintStart_toEndOf="@+id/imgAddress"
+                        bind:layout_constraintTop_toBottomOf="@+id/tvPhone"
+                        bind:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"/>
+
+
+                <ImageView
+                    android:id="@+id/imgAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    bind:layout_constraintBottom_toBottomOf="@+id/tvAddress"
+                    bind:layout_constraintEnd_toEndOf="@+id/imgPhone"
+                    bind:layout_constraintStart_toStartOf="@+id/imgPhone"
+                    bind:layout_constraintTop_toTopOf="@+id/tvAddress"
+                    bind:srcCompat="@drawable/ic_location_on_black_24dp" />
+
+                <TextView
+                        android:id="@+id/tvCompany"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tvFullName"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="16dp"
+                        android:padding="4dp"
+                        android:text="@{user.company.name.concat(`,`).concat(@string/space).concat(user.company.catchPhrase).concat(`,`).concat(@string/space).concat(user.company.bs)}"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="16sp"
+                        bind:layout_constraintStart_toEndOf="@+id/imgCompany"
+                        bind:layout_constraintTop_toBottomOf="@+id/imgAddress"
+                        bind:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"/>
+
+
+                <ImageView
+                    android:id="@+id/imgCompany"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    bind:layout_constraintBottom_toBottomOf="@+id/tvCompany"
+                    bind:layout_constraintEnd_toEndOf="@+id/imgAddress"
+                    bind:layout_constraintStart_toStartOf="@+id/imgAddress"
+                    bind:layout_constraintTop_toTopOf="@+id/tvCompany"
+
+                    bind:srcCompat="@drawable/ic_company_black_24dp" />
+
+
+
+
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+</layout>
